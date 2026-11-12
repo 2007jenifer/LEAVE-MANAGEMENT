@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API = "http://localhost:5000/leaves";
+const API = "https://leave-management-backend-wz7t.onrender.com/leaves";
 
 function App() {
   const [leaves, setLeaves] = useState([]);
@@ -42,7 +42,6 @@ function App() {
 
     try {
       await axios.post(API, form);
-
       alert("Leave applied successfully!");
 
       setForm({
@@ -186,18 +185,14 @@ function App() {
                         <div className="actions">
                           <button
                             className="approve-btn"
-                            onClick={() =>
-                              updateStatus(leave._id, "Approved")
-                            }
+                            onClick={() => updateStatus(leave._id, "Approved")}
                           >
                             Approve
                           </button>
 
                           <button
                             className="reject-btn"
-                            onClick={() =>
-                              updateStatus(leave._id, "Rejected")
-                            }
+                            onClick={() => updateStatus(leave._id, "Rejected")}
                           >
                             Reject
                           </button>
